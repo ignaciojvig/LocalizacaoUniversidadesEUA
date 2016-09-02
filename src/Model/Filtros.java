@@ -4,6 +4,7 @@ package Model;
  *
  * @author JoãoVictor
  * Comentário por Luís
+ * Comentário por Karina
  */
 public class Filtros {
     String tiposelecao = "";
