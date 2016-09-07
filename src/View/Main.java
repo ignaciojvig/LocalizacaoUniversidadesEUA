@@ -22,6 +22,7 @@ public class Main extends javax.swing.JFrame {
     public Main() {
         initComponents();
         ConfTela();
+        Inicializar();
     }
     
     private void ConfTela() {
@@ -30,13 +31,81 @@ public class Main extends javax.swing.JFrame {
         //this.setSize(300, 500);
         //this.setResizable(true);
            
-        //Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
-        //this.setLocation(dim.width / 2 - this.getSize().width / 2, dim.height / 2 - this.getSize().height / 2);
+        Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
+        this.setLocation(dim.width / 2 - this.getSize().width / 2, dim.height / 2 - this.getSize().height / 2);
         
         CardLayout cl = (CardLayout) Principal.getLayout();
         cl.show(Principal, "Filtros");
         this.setVisible(true);
-        }
+    }
+    
+    int cbt1 = 1;
+    
+    public void Inicializar(){
+        
+        
+        comboColuna1.setEnabled(false);
+        comboColuna1.setVisible(false);
+        
+        comboValores1.setEnabled(false);
+        comboValores1.setVisible(false);
+        
+        comboColuna2.setEnabled(false);
+        comboColuna2.setVisible(false);
+        
+        comboValores2.setEnabled(false);
+        comboValores2.setVisible(false);
+        
+        comboColuna3.setEnabled(false);
+        comboColuna3.setVisible(false);
+        
+        comboValores3.setEnabled(false);
+        comboValores3.setVisible(false);
+        
+        comboColuna4.setEnabled(false);
+        comboColuna4.setVisible(false);
+        
+        comboValores4.setEnabled(false);
+        comboValores4.setVisible(false);
+        
+        comboColuna5.setEnabled(false);
+        comboColuna5.setVisible(false);
+        
+        comboValores5.setEnabled(false);
+        comboValores5.setVisible(false);
+        
+        comboColuna6.setEnabled(false);
+        comboColuna6.setVisible(false);
+        
+        comboValores6.setEnabled(false);
+        comboValores6.setVisible(false);
+        
+        comboColuna7.setEnabled(false);
+        comboColuna7.setVisible(false);
+        
+        comboValores7.setEnabled(false);
+        comboValores7.setVisible(false);
+        
+        comboColuna8.setEnabled(false);
+        comboColuna8.setVisible(false);
+        
+        comboValores8.setEnabled(false);
+        comboValores8.setVisible(false);
+        
+        comboColuna9.setEnabled(false);
+        comboColuna9.setVisible(false);
+        
+        comboValores9.setEnabled(false);
+        comboValores9.setVisible(false);
+        
+        comboColuna10.setEnabled(false);
+        comboColuna10.setVisible(false);
+        
+        comboValores10.setEnabled(false);
+        comboValores10.setVisible(false);
+        
+        
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -52,7 +121,31 @@ public class Main extends javax.swing.JFrame {
         Conteudo = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
-        jButton2 = new javax.swing.JButton();
+        comboColuna = new javax.swing.JComboBox<>();
+        comboValores = new javax.swing.JComboBox<>();
+        comboColuna1 = new javax.swing.JComboBox<>();
+        comboValores1 = new javax.swing.JComboBox<>();
+        comboColuna2 = new javax.swing.JComboBox<>();
+        comboValores2 = new javax.swing.JComboBox<>();
+        comboColuna3 = new javax.swing.JComboBox<>();
+        comboValores3 = new javax.swing.JComboBox<>();
+        comboColuna4 = new javax.swing.JComboBox<>();
+        comboValores4 = new javax.swing.JComboBox<>();
+        comboColuna5 = new javax.swing.JComboBox<>();
+        comboValores5 = new javax.swing.JComboBox<>();
+        comboValores6 = new javax.swing.JComboBox<>();
+        comboColuna6 = new javax.swing.JComboBox<>();
+        comboValores7 = new javax.swing.JComboBox<>();
+        comboColuna7 = new javax.swing.JComboBox<>();
+        comboValores8 = new javax.swing.JComboBox<>();
+        comboColuna8 = new javax.swing.JComboBox<>();
+        comboValores9 = new javax.swing.JComboBox<>();
+        comboColuna9 = new javax.swing.JComboBox<>();
+        comboValores10 = new javax.swing.JComboBox<>();
+        comboColuna10 = new javax.swing.JComboBox<>();
+        btRemFiltros = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
+        btAddFiltro = new javax.swing.JButton();
         Graficos = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
@@ -72,35 +165,218 @@ public class Main extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 153, 255));
         jLabel1.setText("Filtros");
-        Conteudo.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 330, 30));
+        Conteudo.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 330, 30));
 
-        jPanel2.setBackground(new java.awt.Color(238, 238, 238));
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
-        jButton2.setText("Buscar");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        comboColuna.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        comboColuna.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "ID", "Nome da Universidade", "Endereço da Universidade", "Endereço da Universidade", "Cidade da Universidade", "Código do Estado", "Reitor", "Título do Reitor", "Endereço Web da Universidade", "Condado da Universidade", "Longitude da Universidade", "Latitude da Universidade" }));
+        comboColuna.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                comboColunaActionPerformed(evt);
             }
         });
+
+        comboValores.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        comboValores.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "" }));
+
+        comboColuna1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        comboColuna1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "ID", "Nome da Universidade", "Endereço da Universidade", "Endereço da Universidade", "Cidade da Universidade", "Código do Estado", "Reitor", "Título do Reitor", "Endereço Web da Universidade", "Condado da Universidade", "Longitude da Universidade", "Latitude da Universidade" }));
+
+        comboValores1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        comboValores1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "" }));
+
+        comboColuna2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        comboColuna2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "ID", "Nome da Universidade", "Endereço da Universidade", "Endereço da Universidade", "Cidade da Universidade", "Código do Estado", "Reitor", "Título do Reitor", "Endereço Web da Universidade", "Condado da Universidade", "Longitude da Universidade", "Latitude da Universidade" }));
+
+        comboValores2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        comboValores2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "" }));
+
+        comboColuna3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        comboColuna3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "ID", "Nome da Universidade", "Endereço da Universidade", "Endereço da Universidade", "Cidade da Universidade", "Código do Estado", "Reitor", "Título do Reitor", "Endereço Web da Universidade", "Condado da Universidade", "Longitude da Universidade", "Latitude da Universidade" }));
+
+        comboValores3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        comboValores3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "" }));
+
+        comboColuna4.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        comboColuna4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "ID", "Nome da Universidade", "Endereço da Universidade", "Endereço da Universidade", "Cidade da Universidade", "Código do Estado", "Reitor", "Título do Reitor", "Endereço Web da Universidade", "Condado da Universidade", "Longitude da Universidade", "Latitude da Universidade" }));
+
+        comboValores4.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        comboValores4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "" }));
+
+        comboColuna5.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        comboColuna5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "ID", "Nome da Universidade", "Endereço da Universidade", "Endereço da Universidade", "Cidade da Universidade", "Código do Estado", "Reitor", "Título do Reitor", "Endereço Web da Universidade", "Condado da Universidade", "Longitude da Universidade", "Latitude da Universidade" }));
+
+        comboValores5.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        comboValores5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "" }));
+
+        comboValores6.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        comboValores6.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "" }));
+
+        comboColuna6.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        comboColuna6.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "ID", "Nome da Universidade", "Endereço da Universidade", "Endereço da Universidade", "Cidade da Universidade", "Código do Estado", "Reitor", "Título do Reitor", "Endereço Web da Universidade", "Condado da Universidade", "Longitude da Universidade", "Latitude da Universidade" }));
+
+        comboValores7.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        comboValores7.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "" }));
+
+        comboColuna7.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        comboColuna7.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "ID", "Nome da Universidade", "Endereço da Universidade", "Endereço da Universidade", "Cidade da Universidade", "Código do Estado", "Reitor", "Título do Reitor", "Endereço Web da Universidade", "Condado da Universidade", "Longitude da Universidade", "Latitude da Universidade" }));
+
+        comboValores8.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        comboValores8.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "" }));
+
+        comboColuna8.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        comboColuna8.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "ID", "Nome da Universidade", "Endereço da Universidade", "Endereço da Universidade", "Cidade da Universidade", "Código do Estado", "Reitor", "Título do Reitor", "Endereço Web da Universidade", "Condado da Universidade", "Longitude da Universidade", "Latitude da Universidade" }));
+
+        comboValores9.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        comboValores9.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "" }));
+
+        comboColuna9.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        comboColuna9.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "ID", "Nome da Universidade", "Endereço da Universidade", "Endereço da Universidade", "Cidade da Universidade", "Código do Estado", "Reitor", "Título do Reitor", "Endereço Web da Universidade", "Condado da Universidade", "Longitude da Universidade", "Latitude da Universidade" }));
+
+        comboValores10.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        comboValores10.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "" }));
+
+        comboColuna10.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        comboColuna10.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "ID", "Nome da Universidade", "Endereço da Universidade", "Endereço da Universidade", "Cidade da Universidade", "Código do Estado", "Reitor", "Título do Reitor", "Endereço Web da Universidade", "Condado da Universidade", "Longitude da Universidade", "Latitude da Universidade" }));
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton2)
-                .addGap(21, 21, 21))
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(31, 31, 31)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(comboColuna, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(46, 46, 46)
+                        .addComponent(comboValores, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(comboColuna10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(46, 46, 46)
+                                .addComponent(comboValores10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(comboColuna2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(46, 46, 46)
+                                .addComponent(comboValores2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(comboColuna1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(46, 46, 46)
+                                .addComponent(comboValores1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(comboColuna8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(46, 46, 46)
+                                .addComponent(comboValores8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(comboColuna9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(46, 46, 46)
+                                .addComponent(comboValores9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(jPanel2Layout.createSequentialGroup()
+                                    .addComponent(comboColuna3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(46, 46, 46)
+                                    .addComponent(comboValores3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(jPanel2Layout.createSequentialGroup()
+                                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(comboColuna4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(comboColuna5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGap(46, 46, 46)
+                                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(comboValores5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(comboValores4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGroup(jPanel2Layout.createSequentialGroup()
+                                    .addComponent(comboColuna6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(46, 46, 46)
+                                    .addComponent(comboValores6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(jPanel2Layout.createSequentialGroup()
+                                    .addComponent(comboColuna7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(46, 46, 46)
+                                    .addComponent(comboValores7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(69, 475, Short.MAX_VALUE))))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(366, Short.MAX_VALUE)
-                .addComponent(jButton2)
-                .addContainerGap())
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(comboColuna, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(comboValores, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(comboColuna1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(comboValores1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(comboColuna2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(comboValores2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(comboColuna3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(comboValores3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(comboColuna4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(comboValores4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(comboColuna5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(comboValores5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(comboColuna6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(comboValores6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(comboColuna7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(comboValores7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(comboColuna8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(comboValores8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(comboColuna9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(comboValores9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(comboColuna10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(comboValores10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        Conteudo.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, 630, -1));
+        Conteudo.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 40, 630, 380));
+
+        btRemFiltros.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btRemFiltros.setForeground(new java.awt.Color(0, 153, 255));
+        btRemFiltros.setText("Remover Filtros");
+        btRemFiltros.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btRemFiltrosActionPerformed(evt);
+            }
+        });
+        Conteudo.add(btRemFiltros, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 430, -1, -1));
+
+        jButton3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jButton3.setForeground(new java.awt.Color(0, 153, 255));
+        jButton3.setText("Buscar");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+        Conteudo.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 430, -1, -1));
+
+        btAddFiltro.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btAddFiltro.setForeground(new java.awt.Color(0, 153, 255));
+        btAddFiltro.setText("Adicionar Filtros");
+        btAddFiltro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btAddFiltroActionPerformed(evt);
+            }
+        });
+        Conteudo.add(btAddFiltro, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 430, -1, -1));
 
         javax.swing.GroupLayout FiltrosLayout = new javax.swing.GroupLayout(Filtros);
         Filtros.setLayout(FiltrosLayout);
@@ -186,11 +462,27 @@ public class Main extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        CardLayout cl = (CardLayout) Principal.getLayout();
-        cl.show(Principal, "Graficos");
-        this.setVisible(true);
-    }//GEN-LAST:event_jButton2ActionPerformed
+    private void btRemFiltrosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btRemFiltrosActionPerformed
+        if(cbt1 > 1){
+        switch(cbt1){
+            case 2: comboColuna1.setEnabled(false); comboColuna1.setVisible(false); comboValores1.setEnabled(false); comboValores1.setVisible(false); break;
+            case 3: comboColuna2.setEnabled(false); comboColuna2.setVisible(false); comboValores2.setEnabled(false); comboValores2.setVisible(false); break;
+            case 4: comboColuna3.setEnabled(false); comboColuna3.setVisible(false); comboValores3.setEnabled(false); comboValores3.setVisible(false); break;
+            case 5: comboColuna4.setEnabled(false); comboColuna4.setVisible(false); comboValores4.setEnabled(false); comboValores4.setVisible(false); break;
+            case 6: comboColuna5.setEnabled(false); comboColuna5.setVisible(false); comboValores5.setEnabled(false); comboValores5.setVisible(false); break;
+            case 7: comboColuna6.setEnabled(false); comboColuna6.setVisible(false); comboValores6.setEnabled(false); comboValores6.setVisible(false); break;
+            case 8: comboColuna7.setEnabled(false); comboColuna7.setVisible(false); comboValores7.setEnabled(false); comboValores7.setVisible(false); break;
+            case 9: comboColuna8.setEnabled(false); comboColuna8.setVisible(false); comboValores8.setEnabled(false); comboValores8.setVisible(false); break;
+            case 10: comboColuna9.setEnabled(false); comboColuna9.setVisible(false); comboValores9.setEnabled(false); comboValores9.setVisible(false); break;
+            case 11: comboColuna10.setEnabled(false); comboColuna10.setVisible(false); comboValores10.setEnabled(false); comboValores10.setVisible(false); break;
+      
+        }
+        cbt1--;
+    }
+    else{
+        JOptionPane.showMessageDialog(null, "Não é possível remover mais filtros!");
+    }
+    }//GEN-LAST:event_btRemFiltrosActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         CardLayout cl = (CardLayout) Principal.getLayout();
@@ -198,7 +490,40 @@ public class Main extends javax.swing.JFrame {
         this.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void comboColunaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboColunaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_comboColunaActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void btAddFiltroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAddFiltroActionPerformed
+    
+    if(cbt1 < 10){
+        switch(cbt1){
+            case 1: comboColuna1.setEnabled(true); comboColuna1.setVisible(true); comboValores1.setEnabled(true); comboValores1.setVisible(true); break;
+            case 2: comboColuna2.setEnabled(true); comboColuna2.setVisible(true); comboValores2.setEnabled(true); comboValores2.setVisible(true); break;
+            case 3: comboColuna3.setEnabled(true); comboColuna3.setVisible(true); comboValores3.setEnabled(true); comboValores3.setVisible(true); break;
+            case 4: comboColuna4.setEnabled(true); comboColuna4.setVisible(true); comboValores4.setEnabled(true); comboValores4.setVisible(true); break;
+            case 5: comboColuna5.setEnabled(true); comboColuna5.setVisible(true); comboValores5.setEnabled(true); comboValores5.setVisible(true); break;
+            case 6: comboColuna6.setEnabled(true); comboColuna6.setVisible(true); comboValores6.setEnabled(true); comboValores6.setVisible(true); break;
+            case 7: comboColuna7.setEnabled(true); comboColuna7.setVisible(true); comboValores7.setEnabled(true); comboValores7.setVisible(true); break;
+            case 8: comboColuna8.setEnabled(true); comboColuna8.setVisible(true); comboValores8.setEnabled(true); comboValores8.setVisible(true); break;
+            case 9: comboColuna9.setEnabled(true); comboColuna9.setVisible(true); comboValores9.setEnabled(true); comboValores9.setVisible(true); break;
+            case 10: comboColuna10.setEnabled(true); comboColuna10.setVisible(true); comboValores10.setEnabled(true); comboValores10.setVisible(true); break;
+      
+        }
+        cbt1++;
+    }
+    else{
+        JOptionPane.showMessageDialog(null, "Não é possível adicionar mais filtros!");
+    }
+        
+    }//GEN-LAST:event_btAddFiltroActionPerformed
+
     /**
+     * 
      * @param args the command line arguments
      */
     public static void main(String args[]) {
@@ -238,8 +563,32 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JPanel Filtros;
     private javax.swing.JPanel Graficos;
     private javax.swing.JPanel Principal;
+    private javax.swing.JButton btAddFiltro;
+    private javax.swing.JButton btRemFiltros;
+    private javax.swing.JComboBox<String> comboColuna;
+    private javax.swing.JComboBox<String> comboColuna1;
+    private javax.swing.JComboBox<String> comboColuna10;
+    private javax.swing.JComboBox<String> comboColuna2;
+    private javax.swing.JComboBox<String> comboColuna3;
+    private javax.swing.JComboBox<String> comboColuna4;
+    private javax.swing.JComboBox<String> comboColuna5;
+    private javax.swing.JComboBox<String> comboColuna6;
+    private javax.swing.JComboBox<String> comboColuna7;
+    private javax.swing.JComboBox<String> comboColuna8;
+    private javax.swing.JComboBox<String> comboColuna9;
+    private javax.swing.JComboBox<String> comboValores;
+    private javax.swing.JComboBox<String> comboValores1;
+    private javax.swing.JComboBox<String> comboValores10;
+    private javax.swing.JComboBox<String> comboValores2;
+    private javax.swing.JComboBox<String> comboValores3;
+    private javax.swing.JComboBox<String> comboValores4;
+    private javax.swing.JComboBox<String> comboValores5;
+    private javax.swing.JComboBox<String> comboValores6;
+    private javax.swing.JComboBox<String> comboValores7;
+    private javax.swing.JComboBox<String> comboValores8;
+    private javax.swing.JComboBox<String> comboValores9;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
