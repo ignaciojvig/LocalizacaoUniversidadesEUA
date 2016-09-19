@@ -5,9 +5,14 @@
  */
 package View;
 
+import Model.ListaUniversidades;
 import java.awt.CardLayout;
 import java.awt.Dimension;
 import java.awt.Toolkit;
+import java.io.File;
+import java.net.URL;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -495,7 +500,22 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_comboColunaActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
+        URL url;
+        try{
+            url = new URL("https://inventory.data.gov/dataset/032e19b4-5a90-41dc-83ff-6e4cd234f565/resource/38625c3d-5388-4c16-a30f-d105432553a4/download/postscndryunivsrvy2013dirinfo.csv");
+            ListaUniversidades lisuni = new ListaUniversidades();
+            lisuni.load(url);
+            System.out.println("Obtido da Web: " + lisuni.toString());
+            
+            File arq = new File("universidades.ser");
+            lisuni.save(arq);
+            ListaUniversidades relisuni = new ListaUniversidades();
+            relisuni.load(arq);
+            System.out.println("Obtido localmente: " + relisuni.toString());
+        }
+        catch(Exception ex){
+            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void btAddFiltroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAddFiltroActionPerformed
