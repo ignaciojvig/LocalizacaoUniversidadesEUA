@@ -5,17 +5,17 @@ package Model;
  * @author JoãoVictor
  */
 public class Universidade {
-    String id = "";
-    String nome = "";
-    String endereco = "";
-    String cidade = "";
-    String codigo = "";
-    String adm = "";
-    String tituloAdm = "";
-    String website = "";
-    String condado = "";
-    String longitude = "";
-    String latitude = "";
+    private String id = "";
+    private String nome = "";
+    private String endereco = "";
+    private String cidade = "";
+    private String codigo = "";
+    private String adm = "";
+    private String tituloAdm = "";
+    private String website = "";
+    private String condado = "";
+    private String longitude = "";
+    private String latitude = "";
     
     public void conectarAoDataset(){
 
