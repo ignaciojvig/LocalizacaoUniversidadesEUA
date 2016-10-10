@@ -86,9 +86,7 @@ public class ListaUniversidades {
 
     public DefaultTableModel getDtm() {
         //dtm.setColumnIdentifiers();
-        if(dtm == null){            
-            Object[] vaipf = {"Eu", "To", "Fudido"};
-            dtm.addRow(vaipf);
+        if(dtm == null){
             JOptionPane.showMessageDialog(null, "Vazio");
         }
         else JOptionPane.showMessageDialog(null, "Não Vazio");
