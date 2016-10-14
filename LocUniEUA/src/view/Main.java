@@ -14,6 +14,7 @@ import java.net.URL;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import model.Filtros;
 
 /**
  *
@@ -48,6 +49,7 @@ public class Main extends javax.swing.JFrame {
     
     public void Inicializar(){
         
+        estadoSistema.setVisible(false);
         
         comboColuna1.setEnabled(false);
         comboColuna1.setVisible(false);
@@ -228,6 +230,7 @@ public class Main extends javax.swing.JFrame {
         });
 
         estadoSistema.setForeground(new java.awt.Color(255, 0, 0));
+        estadoSistema.setText("Dados estão carregando");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -506,29 +509,12 @@ public class Main extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         
-        estadoSistema.setText("Dados estão sendo processados!");
+        estadoSistema.setVisible(true);
         
-        URL url;
+        Runnable filtroinicial = new Filtros(1);
+        Thread filtrovazio = new Thread(filtroinicial);
         
-        //Thread.sleep(1000);
-        try{
-            url = new URL("https://inventory.data.gov/dataset/032e19b4-5a90-41dc-83ff-6e4cd234f565/resource/38625c3d-5388-4c16-a30f-d105432553a4/download/postscndryunivsrvy2013dirinfo.csv");
-            ListaUniversidades lisuni = new ListaUniversidades();
-            lisuni.load(url);
-            System.out.println("Obtido da Web: " + lisuni.toString());
-            
-            File arq = new File("universidades.ser");
-            lisuni.save(arq);
-            ListaUniversidades relisuni = new ListaUniversidades();
-            relisuni.load(arq);
-            System.out.println("Obtido localmente: " + relisuni.toString());
-            
-            tabelaDados.setModel(lisuni.getDtm());
-            estadoSistema.setText("");
-        }
-        catch(Exception ex){
-            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        filtrovazio.run();
         
         CardLayout cl = (CardLayout) Principal.getLayout();
         cl.show(Principal, "Graficos");
@@ -608,7 +594,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JPanel Conteudo;
     private javax.swing.JPanel Filtros;
     private javax.swing.JPanel Graficos;
-    private javax.swing.JPanel Principal;
+    public static javax.swing.JPanel Principal;
     private javax.swing.JButton btAddFiltro;
     private javax.swing.JButton btRemFiltros;
     private javax.swing.JComboBox<String> comboColuna;
@@ -633,7 +619,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JTextField comboValores7;
     private javax.swing.JTextField comboValores8;
     private javax.swing.JTextField comboValores9;
-    private javax.swing.JLabel estadoSistema;
+    public javax.swing.JLabel estadoSistema;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
@@ -642,6 +628,6 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
-    public javax.swing.JTable tabelaDados;
+    public static javax.swing.JTable tabelaDados;
     // End of variables declaration//GEN-END:variables
 }
