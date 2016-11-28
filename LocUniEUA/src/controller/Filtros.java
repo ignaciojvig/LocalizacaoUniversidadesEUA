@@ -42,7 +42,7 @@ public class Filtros{
                 url = new URL("https://inventory.data.gov/dataset/032e19b4-5a90-41dc-83ff-6e4cd234f565/resource/38625c3d-5388-4c16-a30f-d105432553a4/download/postscndryunivsrvy2013dirinfo.csv");
                 
                 if(tiposelecao == 0){
-                    ListaUniversidades lisuni = new ListaUniversidades(0);
+                    /*ListaUniversidades lisuni = new ListaUniversidades(0);
                     lisuni.load(url);
                     System.out.println("Obtido da Web: " + lisuni.toString());
                   
@@ -51,11 +51,11 @@ public class Filtros{
                     lisuni.save(arq);
                     ListaUniversidades relisuni = new ListaUniversidades(0);
                     relisuni.load(arq);
-                    System.out.println("Obtido localmente: " + relisuni.toString());
+                    System.out.println("Obtido localmente: " + relisuni.toString());*/
                 }
                 
                 if(tiposelecao == 1){
-                    ListaUniversidades lisuni = new ListaUniversidades(1);
+                    /*ListaUniversidades lisuni = new ListaUniversidades(1);
                     lisuni.load(url);
                     System.out.println("Obtido da Web: " + lisuni.toString());
                     dg.map = lisuni.getDg();
@@ -70,11 +70,11 @@ public class Filtros{
                     
                     CardLayout cl = (CardLayout) Main.Principal.getLayout();
                     cl.show(Main.Principal, "Graficos");
-                    (Main.Principal).setVisible(true);
+                    (Main.Principal).setVisible(true);*/
                 }
                 
                 if(tiposelecao == 2){
-                    ListaUniversidades lisuni = new ListaUniversidades(2);
+                    /*ListaUniversidades lisuni = new ListaUniversidades(2);
                     lisuni.load(url);
                     System.out.println("Obtido da Web: " + lisuni.toString());
                     dg.map = lisuni.getDg();                   
@@ -89,11 +89,11 @@ public class Filtros{
                     
                     CardLayout cl = (CardLayout) Main.Principal.getLayout();
                     cl.show(Main.Principal, "Graficos");
-                    (Main.Principal).setVisible(true);
+                    (Main.Principal).setVisible(true);*/
                 }
                 
                 if(tiposelecao == 3){
-                    ListaUniversidades lisuni = new ListaUniversidades(3);
+                    /*ListaUniversidades lisuni = new ListaUniversidades(3);
                     lisuni.load(url);
                     System.out.println("Obtido da Web: " + lisuni.toString());
                     dg.map = lisuni.getDg();
@@ -108,7 +108,7 @@ public class Filtros{
                     
                     CardLayout cl = (CardLayout) Main.Principal.getLayout();
                     cl.show(Main.Principal, "Graficos");
-                    (Main.Principal).setVisible(true);
+                    (Main.Principal).setVisible(true);*/
                 }
                 
                 

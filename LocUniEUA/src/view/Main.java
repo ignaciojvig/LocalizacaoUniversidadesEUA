@@ -7,19 +7,25 @@ package view;
 
 import controller.Filtros;
 import controller.Graficos;
+import controller.Loader;
+import controller.Seeker;
 import java.awt.CardLayout;
 import java.awt.Dimension;
 import java.awt.Toolkit;
+import java.io.IOException;
 import java.util.Comparator;
 import java.util.Map;
 import java.util.SortedSet;
 import java.util.TreeSet;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.application.Platform;
 import javafx.embed.swing.JFXPanel;
 import javafx.scene.Scene;
 import javafx.scene.chart.LineChart;
 import javax.swing.JFrame;
 import model.DadosGraficos;
+import model.ListaUniversidades;
 /**
  *
  * @author JoãoVictor
@@ -28,21 +34,27 @@ public class Main extends javax.swing.JFrame {
 
     DadosGraficos dg = new DadosGraficos();
     Graficos grafico = new Graficos();
+    ListaUniversidades listaUniversidades = new ListaUniversidades();
     
     /**
      * Creates new form Main
      */
-    public Main() {
+    public Main() throws IOException {
         initComponents();
         ConfTela();
         carregarFiltros();
+        carregarDados();
     }
     
-    public void carregarFiltros(){
-            Filtros loadDosFiltros = new Filtros(0);
-            loadDosFiltros.run();
+    public void carregarDados() throws IOException{
+        listaUniversidades.load();
+    }
+    
+    public void carregarFiltros() throws IOException{
+            Loader load = new Loader();
+            load.carregarFiltros();
             comboCidade.setEnabled(false);
-        }
+    }
     
     private void ConfTela() {
 
@@ -354,7 +366,10 @@ public class Main extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
     
-        Filtros filtros;
+        Seeker sk = new Seeker(listaUniversidades.universidades);
+        
+        
+        /*Filtros filtros;
         
         if((comboEstado.getSelectedIndex() == 0) && (comboCidade.getSelectedIndex() == 0)){
             filtros = new Filtros(1);
@@ -384,7 +399,7 @@ public class Main extends javax.swing.JFrame {
         dg.OrdenarDados();
         dg.lerDadosOrdenados();
         //dg.top10();
-        //grafico.getChart(dg.dadosOrdenados);
+        //grafico.getChart(dg.dadosOrdenados);*/
         
     }//GEN-LAST:event_jButton2ActionPerformed
     
@@ -477,7 +492,11 @@ public class Main extends javax.swing.JFrame {
                 }
                 
                
-                new Main().setVisible(true);
+                try {
+                    new Main().setVisible(true);
+                } catch (IOException ex) {
+                    Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }
