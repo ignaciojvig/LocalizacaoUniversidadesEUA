@@ -5,7 +5,6 @@
  */
 package view;
 
-import controller.Filtros;
 import controller.Graficos;
 import controller.Loader;
 import controller.Seeker;
@@ -24,6 +23,7 @@ import javafx.embed.swing.JFXPanel;
 import javafx.scene.Scene;
 import javafx.scene.chart.LineChart;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import model.DadosGraficos;
 import model.ListaUniversidades;
 /**
@@ -35,6 +35,7 @@ public class Main extends javax.swing.JFrame {
     DadosGraficos dg = new DadosGraficos();
     Graficos grafico = new Graficos();
     ListaUniversidades listaUniversidades = new ListaUniversidades();
+    Seeker sk;
     
     /**
      * Creates new form Main
@@ -48,6 +49,7 @@ public class Main extends javax.swing.JFrame {
     
     public void carregarDados() throws IOException{
         listaUniversidades.load();
+        sk = new Seeker(listaUniversidades.universidades);
     }
     
     public void carregarFiltros() throws IOException{
@@ -358,6 +360,7 @@ public class Main extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         dg = new DadosGraficos();
+        sk.limparTabela();
         
         CardLayout cl = (CardLayout) Principal.getLayout();
         cl.show(Principal, "Filtros");
@@ -365,9 +368,19 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-    
-        Seeker sk = new Seeker(listaUniversidades.universidades);
+        if((comboEstado.getSelectedIndex() == 0) && (comboCidade.getSelectedIndex() == 0)){
+           sk.buscaPorNome(valorBusca.getText());
+        }
+        else if((comboEstado.getSelectedIndex() > 0) && (comboCidade.getSelectedIndex() == 0)){
+           sk.buscarPorNomeEstado(valorBusca.getText(), comboEstado.getSelectedItem().toString());
+        }
+        else{
+           sk.buscarPorNomeEstadoCidade(valorBusca.getText(), comboEstado.getSelectedItem().toString(), comboCidade.getSelectedItem().toString());
+        }
         
+        CardLayout cl = (CardLayout) Principal.getLayout();
+        cl.show(Principal, "Tabela");
+        this.setVisible(true);
         
         /*Filtros filtros;
         
@@ -443,8 +456,16 @@ public class Main extends javax.swing.JFrame {
         //CardLayout cl = (CardLayout) Principal.getLayout();
         //cl.show(Principal, "Graficos");
         //this.setVisible(true);
+        dg = new DadosGraficos();
+        dg.map = sk.getDg().map;
         
-        montarGrafico();
+        if(dg.map.size() > 1){
+            dg.OrdenarDados();        
+            montarGrafico();
+        }
+        else{
+            JOptionPane.showMessageDialog(null, "A opção gráfica está desabilitada quando apenas 1 cidade é retornada");
+        }
     }//GEN-LAST:event_jButton3ActionPerformed
 
     

@@ -48,15 +48,28 @@ public class DadosGraficos {
     public Object[] top10(){
         System.out.println(System.lineSeparator());
         Object[] dados = dadosOrdenados.toArray();
-        Object[] top10 = new Object[10];
+        Object[] top10 = null;
         int controladora = 0;
-        for(int i = 0; i < dados.length; i++){    
-            if(i > dados.length-11){
-                System.out.println(dados[i]);
+        
+        if(dados.length >= 10){
+            top10 = new Object[10];
+            for(int i = 0; i < dados.length; i++){           
+                if(i > dados.length-11){
+                    System.out.println(dados[i]);
+                    top10[controladora] = dados[i];
+                    controladora++;
+                }                
+            }
+            
+        } else{
+            top10 = new Object[dados.length];
+            for(int i = 0; i < dados.length; i++){
                 top10[controladora] = dados[i];
-                controladora++;
-            }           
+                controladora++;                              
+            }
         }
+        
+        
         
         return top10;
     }
