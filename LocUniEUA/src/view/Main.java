@@ -25,6 +25,7 @@ import javafx.scene.chart.LineChart;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import model.DadosGraficos;
+import model.Idioma;
 import model.ListaUniversidades;
 /**
  *
@@ -36,6 +37,7 @@ public class Main extends javax.swing.JFrame {
     Graficos grafico = new Graficos();
     ListaUniversidades listaUniversidades = new ListaUniversidades();
     Seeker sk;
+    Idioma idioma = new Idioma();
     
     /**
      * Creates new form Main
@@ -45,6 +47,51 @@ public class Main extends javax.swing.JFrame {
         ConfTela();
         carregarFiltros();
         carregarDados();
+        //ptBR();
+    }
+    
+    public void ptBR(){
+        idioma.setIdiomaPTBR();
+        jMenu1.setText(idioma.getInformacoes());
+        jMenuItem1.setText(idioma.getSobreSistema());
+        jMenuItem2.setText(idioma.getDesenvolvedores());
+        
+        jMenu2.setText(idioma.getIdioma());
+        
+        jLabel1.setText(idioma.getFiltros());
+        jLabel5.setText(idioma.getNomeDaUniversidade());
+        jLabel2.setText(idioma.getEstado());
+        jLabel6.setText(idioma.getCidade());
+        
+        jButton2.setText(idioma.getBuscar());
+        
+        jLabel3.setText(idioma.getDados());
+        
+        jButton1.setText(idioma.getVoltar());
+        
+        jButton3.setText(idioma.getGraficos());
+    }
+    
+    public void enUS(){
+        idioma.setIdiomaENUS();
+        jMenu1.setText(idioma.getInformacoes());
+        jMenuItem1.setText(idioma.getSobreSistema());
+        jMenuItem2.setText(idioma.getDesenvolvedores());
+        
+        jMenu2.setText(idioma.getIdioma());
+        
+        jLabel1.setText(idioma.getFiltros());
+        jLabel5.setText(idioma.getNomeDaUniversidade());
+        jLabel2.setText(idioma.getEstado());
+        jLabel6.setText(idioma.getCidade());
+        
+        jButton2.setText(idioma.getBuscar());
+        
+        jLabel3.setText(idioma.getDados());
+        
+        jButton1.setText(idioma.getVoltar());
+        
+        jButton3.setText(idioma.getGraficos());
     }
     
     public void carregarDados() throws IOException{
@@ -109,6 +156,13 @@ public class Main extends javax.swing.JFrame {
         jButton3 = new javax.swing.JButton();
         Loading = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        jMenu1 = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
+        jMenuItem2 = new javax.swing.JMenuItem();
+        jMenu2 = new javax.swing.JMenu();
+        jMenuItem3 = new javax.swing.JMenuItem();
+        jMenuItem4 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Universidades EUA");
@@ -213,7 +267,7 @@ public class Main extends javax.swing.JFrame {
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(78, 78, 78)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 98, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 77, Short.MAX_VALUE)
                 .addComponent(jButton2)
                 .addContainerGap())
         );
@@ -226,7 +280,7 @@ public class Main extends javax.swing.JFrame {
         );
         FiltrosLayout.setVerticalGroup(
             FiltrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Conteudo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(Conteudo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         Principal.add(Filtros, "Filtros");
@@ -285,7 +339,7 @@ public class Main extends javax.swing.JFrame {
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 328, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 307, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
@@ -343,6 +397,50 @@ public class Main extends javax.swing.JFrame {
         );
 
         Principal.add(Loading, "Loading");
+
+        jMenu1.setText("Informações");
+
+        jMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.CTRL_MASK));
+        jMenuItem1.setText("Sobre o Sistema");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem1);
+
+        jMenuItem2.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_D, java.awt.event.InputEvent.CTRL_MASK));
+        jMenuItem2.setText("Desenvolvedores");
+        jMenu1.add(jMenuItem2);
+
+        jMenuBar1.add(jMenu1);
+
+        jMenu2.setText("Idioma");
+        jMenu2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenu2ActionPerformed(evt);
+            }
+        });
+
+        jMenuItem3.setText("PT-BR");
+        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem3ActionPerformed(evt);
+            }
+        });
+        jMenu2.add(jMenuItem3);
+
+        jMenuItem4.setText("EN-US");
+        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem4ActionPerformed(evt);
+            }
+        });
+        jMenu2.add(jMenuItem4);
+
+        jMenuBar1.add(jMenu2);
+
+        setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -468,6 +566,22 @@ public class Main extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButton3ActionPerformed
 
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        JOptionPane.showMessageDialog(null, "");
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void jMenu2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu2ActionPerformed
+       
+    }//GEN-LAST:event_jMenu2ActionPerformed
+
+    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
+        enUS();
+    }//GEN-LAST:event_jMenuItem4ActionPerformed
+
+    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+        ptBR();
+    }//GEN-LAST:event_jMenuItem3ActionPerformed
+
     
     /**
      * 
@@ -539,6 +653,13 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
