@@ -62,6 +62,7 @@ public class DadosGraficos {
             }
             
         } else{
+            System.out.println("Tamanho: " + dados.length);
             top10 = new Object[dados.length];
             for(int i = 0; i < dados.length; i++){
                 top10[controladora] = dados[i];

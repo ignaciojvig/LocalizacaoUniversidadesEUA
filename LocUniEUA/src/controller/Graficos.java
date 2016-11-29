@@ -23,7 +23,6 @@ public class Graficos {
         final CategoryAxis xAxis = new CategoryAxis();
         final NumberAxis yAxis   = new NumberAxis();
         
-        System.out.println("Ta indo o monstro");
         
         xAxis.setLabel("Estados");
         
@@ -34,34 +33,18 @@ public class Graficos {
         
         XYChart.Series series1 = new XYChart.Series();
         
-        for(int controladora = 0; controladora < 10; controladora++){
+        for(int controladora = 0; controladora < dados.length; controladora++){
             String dadosEmString = dados[controladora].toString();
             System.out.println(dadosEmString);
             int pos = dadosEmString.indexOf("=");
             System.out.println(pos);
-            System.out.println(dadosEmString.substring(0, pos-1) + " | " + dadosEmString.substring(pos+1));
+            System.out.println(dadosEmString.substring(0, pos) + " | " + dadosEmString.substring(pos+1));
             series1.setName("Numero de Universidades"); 
             series1.getData().add(new XYChart.Data(dadosEmString.substring(0, pos-1), Integer.parseInt(dadosEmString.substring(pos+1))));
-            
         } 
         
         lineChart.getData().addAll(series1);
         
-        /*
-        series1.setName("Portfolio 1");                
-        series1.getData().add(new XYChart.Data("Jan", 23));
-        series1.getData().add(new XYChart.Data("Feb", 14));
-        series1.getData().add(new XYChart.Data("Mar", 15));
-        series1.getData().add(new XYChart.Data("Apr", 24));
-        series1.getData().add(new XYChart.Data("May", 34));
-        series1.getData().add(new XYChart.Data("Jun", 36));
-        series1.getData().add(new XYChart.Data("Jul", 22));
-        series1.getData().add(new XYChart.Data("Aug", 45));
-        series1.getData().add(new XYChart.Data("Sep", 43));
-        series1.getData().add(new XYChart.Data("Oct", 17));
-        series1.getData().add(new XYChart.Data("Nov", 29));
-        series1.getData().add(new XYChart.Data("Dec", 25));        
-        */
      
         return lineChart;
     }
