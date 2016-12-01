@@ -1,9 +1,14 @@
 package controller;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
+import javax.swing.JFileChooser;
 import javax.swing.table.DefaultTableModel;
 import model.DadosGraficos;
 import model.ListaUniversidades;
@@ -16,6 +21,7 @@ import view.Main;
  */
 public class Seeker {
     private List<Universidade> universidades = new ArrayList<>();
+    public List<Universidade> resultado = new ArrayList<>();
     DefaultTableModel dtm = new DefaultTableModel();
     DadosGraficos dg = new DadosGraficos();
     
@@ -45,6 +51,42 @@ public class Seeker {
         definirColunas();        
         Main.tabelaDados.setModel(dtm);
         dg = new DadosGraficos();
+        resultado = new ArrayList<>();
+    }
+    
+    public void salvarResultado() throws IOException{
+        JFileChooser salvandoArquivo = new JFileChooser();
+        
+        int i = salvandoArquivo.showSaveDialog(null);
+        if (i != JFileChooser.APPROVE_OPTION) {
+            return;
+        }
+        
+        String nome = salvandoArquivo.getSelectedFile().toString();
+        
+        if(!nome.endsWith(".csv")){
+            nome += ".csv";
+        }
+        
+        File Resultado = new File(nome);
+        
+        BufferedWriter writeResultado = new BufferedWriter(new FileWriter(Resultado));
+        
+        Iterator<Universidade> itr = resultado.iterator();
+        
+        while(itr.hasNext()){
+            Universidade uni = itr.next();
+            
+            writeResultado.write(uni.getCodigo() + "," + uni.getNome() + "," + uni.getEndereco() + "," + uni.getCidade()
+            + "," + uni.getCodigo() + "," + uni.getAdm() + "," + uni.getTituloAdm() + "," + uni.getWebsite() + ","
+            + uni.getCondado() + "," + uni.getLongitude() + "," + uni.getLatitude() + ";\n");
+        }
+        
+        writeResultado.close();
+        
+        Resultado.createNewFile();
+        
+        System.out.println("VAMOVAMO");
     }
     
     public void buscaPorNome(String nome){
@@ -55,6 +97,8 @@ public class Seeker {
             Universidade uni = itr.next();
             
             if(uni.getNome().toLowerCase().contains(nome.toLowerCase())){
+                resultado.add(uni);
+                
                 dtm.addRow(new Object[]{
                     uni.getId(),
                     uni.getNome(),

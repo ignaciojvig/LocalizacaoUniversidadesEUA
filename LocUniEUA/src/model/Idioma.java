@@ -7,7 +7,9 @@ package model;
 public class Idioma {
     public String informacoes;
     public     String sobreSistema;
+    public      String mensagemSobreSistema;
     public     String desenvolvedores;
+    public      String mensagemDesenvolvedores;
     public String idioma;
     
     public String filtros;
@@ -22,6 +24,14 @@ public class Idioma {
         
     public String voltar;
     public String graficos;
+
+    public String getMensagemSobreSistema() {
+        return mensagemSobreSistema;
+    }
+
+    public String getMensagemDesenvolvedores() {
+        return mensagemDesenvolvedores;
+    }
     
     public Idioma(){
         setIdiomaPTBR();
@@ -79,8 +89,10 @@ public class Idioma {
     
     public void setIdiomaPTBR(){
         informacoes = "Informações";
-        sobreSistema = "O sistema foi desenvolvido com a finalidade de permitir que o usuário possa fazer uma análise de dados de universidades Estadunidenses. ";
-        desenvolvedores = "O sistema foi desenvolvido por:\n João Victor Ignacio - ignaciojvig@gmail.com\n Luis Ricardo Ferraz - ferrazluisinho@gmail.com\n Ana Carolina Guijarro Pedroso - ana.carolina_gp@hotmail.com";
+        sobreSistema = "Sobre o sistema";
+        mensagemSobreSistema = "O sistema foi desenvolvido com a finalidade de permitir que o usuário possa fazer uma análise de dados de universidades Estadunidenses.";
+        desenvolvedores = "Desenvolvedores";
+        mensagemDesenvolvedores = "O sistema foi desenvolvido por:" + "\nJoão Victor Ignacio - ignaciojvig@gmail.com" + "\nLuis Ricardo Ferraz - ferrazluisinho@gmail.com" + "\nAna Carolina Guijarro Pedroso - ana.carolina_gp@hotmail.com";
         idioma = "Idioma";
         filtros = "Filtros";
         nomeDaUniversidade = "Nome da Universidade";
@@ -93,8 +105,10 @@ public class Idioma {
     }
     public void setIdiomaENUS(){
         informacoes = "Information";
-        sobreSistema = "The system has been developed with the intent of allow to the user an analysis of the Data about North-America Universities. ";
-        desenvolvedores = "The system has been developed by:\n João Victor Ignacio - ignaciojvig@gmail.com\n Luis Ricardo Ferraz - ferrazluisinho@gmail.com\n Ana Carolina Guijarro Pedroso - ana.carolina_gp@hotmail.com";
+        sobreSistema = "About the System ";
+        mensagemSobreSistema = "The system was developed with the intent of allow the user to do an analysis of data about North-American Universities";
+        desenvolvedores = "Developers";
+        mensagemDesenvolvedores = "The system was developed by:" + "\nJoão Victor Ignacio - ignaciojvig@gmail.com" + "\nLuis Ricardo Ferraz - ferrazluisinho@gmail.com" + "\nAna Carolina Guijarro Pedroso - ana.carolina_gp@hotmail.com";
         idioma = "Language";
         filtros = "Filters";
         nomeDaUniversidade = "Name of the University";
