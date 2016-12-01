@@ -14,6 +14,7 @@ import java.awt.Toolkit;
 import java.io.IOException;
 import java.util.Comparator;
 import java.util.Map;
+import java.util.Properties;
 import java.util.SortedSet;
 import java.util.TreeSet;
 import java.util.logging.Level;
@@ -38,6 +39,7 @@ public class Main extends javax.swing.JFrame {
     ListaUniversidades listaUniversidades = new ListaUniversidades();
     Seeker sk;
     Idioma idioma = new Idioma();
+    Properties prop = new Properties();
     
     /**
      * Creates new form Main
