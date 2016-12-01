@@ -558,6 +558,7 @@ public class Main extends javax.swing.JFrame {
             comboCidade.setEnabled(true);
         }
         else{
+            comboCidade.setSelectedIndex(0);
             comboCidade.setEnabled(false);
         }
     }//GEN-LAST:event_comboEstadoActionPerformed
