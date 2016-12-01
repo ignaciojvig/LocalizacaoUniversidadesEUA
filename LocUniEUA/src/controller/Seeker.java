@@ -128,6 +128,8 @@ public class Seeker {
             Universidade uni = itr.next();
             
             if((uni.getNome().toLowerCase().contains(nome.toLowerCase())) && (uni.getCodigo().equals(estado))){
+                resultado.add(uni);
+                
                 dtm.addRow(new Object[]{
                     uni.getId(),
                     uni.getNome(),
@@ -158,6 +160,8 @@ public class Seeker {
             Universidade uni = itr.next();
             
             if((uni.getNome().toLowerCase().contains(nome.toLowerCase())) && (uni.getCodigo().equals(estado)) && (uni.getCidade().equals(cidade))){
+                resultado.add(uni);
+                
                 dtm.addRow(new Object[]{
                     uni.getId(),
                     uni.getNome(),
