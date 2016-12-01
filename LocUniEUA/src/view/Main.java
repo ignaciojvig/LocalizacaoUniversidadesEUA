@@ -49,7 +49,7 @@ public class Main extends javax.swing.JFrame {
         ConfTela();
         carregarFiltros();
         carregarDados();
-        //ptBR();
+        ptBR();
     }
     
     public void ptBR(){
@@ -147,6 +147,7 @@ public class Main extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         comboCidade = new javax.swing.JComboBox<>();
         jLabel6 = new javax.swing.JLabel();
+        jButton4 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         Tabela = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
@@ -196,6 +197,13 @@ public class Main extends javax.swing.JFrame {
 
         jLabel6.setText("Cidade");
 
+        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imgs/atualizar.png"))); // NOI18N
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -209,14 +217,18 @@ public class Main extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addComponent(comboCidade, 0, 75, Short.MAX_VALUE)
+                        .addComponent(comboCidade, 0, 83, Short.MAX_VALUE)
                         .addGap(71, 71, 71))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(comboEstado, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addComponent(valorBusca)
                         .addContainerGap())))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -233,7 +245,9 @@ public class Main extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
                     .addComponent(comboCidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(29, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
+                .addComponent(jButton4)
+                .addContainerGap())
         );
 
         jButton2.setText("Buscar");
@@ -258,7 +272,7 @@ public class Main extends javax.swing.JFrame {
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ConteudoLayout.createSequentialGroup()
-                .addGap(0, 173, Short.MAX_VALUE)
+                .addGap(0, 165, Short.MAX_VALUE)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(164, 164, 164))
         );
@@ -269,7 +283,7 @@ public class Main extends javax.swing.JFrame {
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(78, 78, 78)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 77, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 161, Short.MAX_VALUE)
                 .addComponent(jButton2)
                 .addContainerGap())
         );
@@ -341,7 +355,7 @@ public class Main extends javax.swing.JFrame {
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 307, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 435, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
@@ -482,38 +496,6 @@ public class Main extends javax.swing.JFrame {
         cl.show(Principal, "Tabela");
         this.setVisible(true);
         
-        /*Filtros filtros;
-        
-        if((comboEstado.getSelectedIndex() == 0) && (comboCidade.getSelectedIndex() == 0)){
-            filtros = new Filtros(1);
-            System.out.println("Filtro 1");
-            filtros.run();
-            
-            dg.map = filtros.getDg();
-        }
-        else if((comboEstado.getSelectedIndex() > 0) && (comboCidade.getSelectedIndex() == 0)){
-            filtros = new Filtros(2);
-            System.out.println("Filtro 2");
-            filtros.run();
-            dg.map = filtros.getDg();
-        }
-        else if((comboEstado.getSelectedIndex() > 0) && (comboCidade.getSelectedIndex() > 0)){
-            filtros = new Filtros(3);
-            System.out.println("Filtro 3");
-            filtros.run();
-            dg.map = filtros.getDg();
-        }
-        
-        CardLayout cl = (CardLayout) Principal.getLayout();
-        cl.show(Principal, "Tabela");
-        this.setVisible(true);
-           
-        //dg.mostrarDados();
-        dg.OrdenarDados();
-        dg.lerDadosOrdenados();
-        //dg.top10();
-        //grafico.getChart(dg.dadosOrdenados);*/
-        
     }//GEN-LAST:event_jButton2ActionPerformed
     
     public void montarGrafico(){
@@ -559,13 +541,15 @@ public class Main extends javax.swing.JFrame {
         dg = new DadosGraficos();
         dg.map = sk.getDg().map;
         
-        if(dg.map.size() > 1){
-            dg.OrdenarDados();        
-            montarGrafico();
+        dg.OrdenarDados();        
+        montarGrafico();
+        
+        /*if(dg.map.size() > 1){
+            
         }
         else{
             JOptionPane.showMessageDialog(null, "A opção gráfica está desabilitada quando apenas 1 cidade é retornada");
-        }
+        }*/
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
@@ -583,6 +567,25 @@ public class Main extends javax.swing.JFrame {
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
         ptBR();
     }//GEN-LAST:event_jMenuItem3ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        comboEstado.setEnabled(false);
+        comboCidade.setEnabled(false);
+        jButton2.setEnabled(false);
+        
+        try {
+            carregarFiltros();            
+        } catch (IOException ex) {
+            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (Exception e){
+            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, e);
+        }
+        
+        comboEstado.setEnabled(true);
+        comboCidade.setEnabled(true);
+        jButton2.setEnabled(true);
+        
+    }//GEN-LAST:event_jButton4ActionPerformed
 
     
     /**
@@ -649,6 +652,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

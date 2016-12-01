@@ -42,12 +42,12 @@ public class Loader {
             BufferedWriter bwCidade = new BufferedWriter(new FileWriter(arqFiltroCidade));
         
             while((line = reader.readNext()) != null){
-                if(!(valoresEstado.contains(line[4])) && !(line[4].equals("STABBR"))){
+                if(!(valoresEstado.contains(line[4])) && !(line[4].equals("STABBR") && (line[4].equals("")))){
                     valoresEstado.add(line[4]);
                     bwEstado.write(line[4] + "\n");
                 }
                     
-                if(!(valoresCidade.contains(line[3])) && !(line[3].equals("CITY"))){
+                if(!(valoresCidade.contains(line[3])) && !(line[3].equals("CITY") && (line[3].equals("")))){
                     valoresCidade.add(line[3]);
                     bwCidade.write(line[3] + "\n");
                 }
@@ -68,7 +68,7 @@ public class Loader {
         
         while(linha != null){
             linha = brEstado.readLine();
-            Main.comboEstado.addItem(linha);
+            Main.comboEstado.addItem(linha);            
         }
 
         linha = "";
