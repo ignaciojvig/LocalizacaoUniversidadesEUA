@@ -23,6 +23,7 @@ public class Idioma {
     public String dados;
         
     public String voltar;
+    public String salvarResultado;
     public String graficos;
 
     public String getMensagemSobreSistema() {
@@ -101,6 +102,7 @@ public class Idioma {
         buscar = "Buscar";
         dados = "Dados";
         voltar = "Voltar";
+        salvarResultado = "Salvar Resultado";
         graficos = "Graficos";
     }
     public void setIdiomaENUS(){
@@ -117,7 +119,12 @@ public class Idioma {
         buscar = "Seek";
         dados = "Data";
         voltar = "Return";
+        salvarResultado = "Save Result";
         graficos = "Graphics";
+    }
+
+    public String getSalvarResultado() {
+        return salvarResultado;
     }
     
 }

@@ -71,6 +71,8 @@ public class Main extends javax.swing.JFrame {
         
         jButton1.setText(idioma.getVoltar());
         
+        jButton5.setText(idioma.getSalvarResultado());
+        
         jButton3.setText(idioma.getGraficos());
     }
     
@@ -92,6 +94,8 @@ public class Main extends javax.swing.JFrame {
         jLabel3.setText(idioma.getDados());
         
         jButton1.setText(idioma.getVoltar());
+        
+        jButton5.setText(idioma.salvarResultado);
         
         jButton3.setText(idioma.getGraficos());
     }
