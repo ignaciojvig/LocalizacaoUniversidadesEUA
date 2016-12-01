@@ -124,6 +124,7 @@ public class Seeker {
         definirColunas();
         
         Iterator<Universidade> itr = universidades.iterator();
+        
         while(itr.hasNext()){
             Universidade uni = itr.next();
             
@@ -182,6 +183,21 @@ public class Seeker {
         
         Main.tabelaDados.setModel(dtm);
     
+    }
+    
+    public void loadCidades(String estado){
+        Iterator<Universidade> itr = universidades.iterator();
+        
+        List<String> lista = new ArrayList<>();
+        
+        while(itr.hasNext()){
+            Universidade uni = itr.next();
+            
+            if((estado.equals(uni.getCodigo())) && !(lista.contains(uni.getCidade()))){
+                Main.comboCidade.addItem(uni.getCidade());
+                lista.add(uni.getCidade());
+            }
+        }
     }
 
     public DadosGraficos getDg() {

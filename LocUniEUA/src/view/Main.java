@@ -23,6 +23,8 @@ import javafx.application.Platform;
 import javafx.embed.swing.JFXPanel;
 import javafx.scene.Scene;
 import javafx.scene.chart.LineChart;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import model.DadosGraficos;
@@ -559,11 +561,16 @@ public class Main extends javax.swing.JFrame {
     
     private void comboEstadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboEstadoActionPerformed
         if(comboEstado.getSelectedIndex() > 0){
+            DefaultComboBoxModel dcbm = new DefaultComboBoxModel();
+            dcbm.removeAllElements();
+            comboCidade.setModel(dcbm);
+            
+            comboCidade.addItem("");
+            sk.loadCidades(comboEstado.getSelectedItem().toString());
             comboCidade.setEnabled(true);
         }
         else{
-            comboCidade.setSelectedIndex(0);
-            comboCidade.setEnabled(false);
+            comboCidade.setEnabled(false);            
         }
     }//GEN-LAST:event_comboEstadoActionPerformed
 
