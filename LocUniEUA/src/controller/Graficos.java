@@ -40,7 +40,7 @@ public class Graficos {
             System.out.println(pos);
             System.out.println(dadosEmString.substring(0, pos) + " | " + dadosEmString.substring(pos+1));
             series1.setName("Numero de Universidades"); 
-            series1.getData().add(new XYChart.Data(dadosEmString.substring(0, pos-1), Integer.parseInt(dadosEmString.substring(pos+1))));
+            series1.getData().add(new XYChart.Data(dadosEmString.substring(0, pos), Integer.parseInt(dadosEmString.substring(pos+1))));
         } 
         
         lineChart.getData().addAll(series1);
